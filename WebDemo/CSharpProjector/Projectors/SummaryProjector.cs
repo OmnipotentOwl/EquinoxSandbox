@@ -33,7 +33,6 @@ namespace CSharpProjector.Projectors
         {
             foreach (var streamEvent in streamData.events)
             {
-
                 var processedEvent = Todo.Event.TryDecode(streamEvent.EventType, streamEvent.Data);
 
                 Log.Debug("Processed Event: {Event}", processedEvent);

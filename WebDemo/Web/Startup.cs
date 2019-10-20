@@ -4,12 +4,20 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
+using Microsoft.Extensions.Configuration;
 
 namespace WebDemo.Web
 {
     /// <summary>Defines the Hosting configuration, including registration of the store and backend services</summary>
-    class Startup
+    public class Startup
     {
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        public IConfiguration Configuration { get; }
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
@@ -41,7 +49,7 @@ namespace WebDemo.Web
             services.AddSingleton(sp => sp.GetRequiredService<ServiceBuilder>().CreateAggregateService());
         }
 
-        static EquinoxContext ConfigureStore()
+        EquinoxContext ConfigureStore()
         {
             // This is the allocation limit passed internally to a System.Caching.MemoryCache instance
             // The primary objects held in the cache are the Folded State of Event-sourced aggregates
@@ -55,11 +63,11 @@ namespace WebDemo.Web
             //     dotnet tool install -g Equinox.Cli
             //     Equinox.Cli init -ru 1000 cosmos -s $env:EQUINOX_COSMOS_CONNECTION -d $env:EQUINOX_COSMOS_DATABASE -c $env:EQUINOX_COSMOS_CONTAINER
             const string connVar = "EQUINOX_COSMOS_CONNECTION";
-            var conn = Environment.GetEnvironmentVariable(connVar);
+            var conn = Configuration.GetValue<string>(connVar);
             const string dbVar = "EQUINOX_COSMOS_DATABASE";
-            var db = Environment.GetEnvironmentVariable(dbVar);
+            var db = Configuration.GetValue<string>(dbVar);
             const string containerVar = "EQUINOX_COSMOS_CONTAINER";
-            var container = Environment.GetEnvironmentVariable(containerVar);
+            var container = Configuration.GetValue<string>(containerVar);
             if (conn == null || db == null || container == null)
                 throw new Exception(
                     $"Event Storage subsystem requires the following Environment Variables to be specified: {connVar} {dbVar}, {containerVar}");
