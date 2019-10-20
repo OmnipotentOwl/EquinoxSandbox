@@ -1,0 +1,40 @@
+# Propulsion CosmosDb Projector (without Kafka emission)
+
+This project was generated using:
+
+    dotnet new -i Equinox.Templates # just once, to install/update in the local templates store
+    # add -k to add Kafka Projection logic
+    dotnet new proProjector # use --help to see options
+
+## Usage instructions
+
+0. establish connection strings etc. per https://github.com/jet/equinox README
+
+        $env:EQUINOX_COSMOS_CONNECTION="AccountEndpoint=https://....;AccountKey=....=;" # or use -s
+        $env:EQUINOX_COSMOS_DATABASE="equinox-test" # or use -d
+        $env:EQUINOX_COSMOS_CONTAINER="equinox-test" # or use - c
+
+1. Use the `eqx` tool to initialize and then run some transactions in a CosmosDb container
+
+        dotnet tool install -g Equinox.Tool --version 2.0.0-rc* # only needed once
+
+        # (either add environment variables as per step 0 or use -s/-d/-c to specify them)
+
+        # generate a cosmos container to store events in
+        eqx init -ru 1000 cosmos
+
+        # (either add environment variables as per step 0 or use -s/-d/-c to specify them)
+        # `-t saveforlater` SaveForLater test produces uniform size events to project
+        # `-C -f 200` constrains current writers to 100 and applies caching so RU consumption is constrained such that an allocation of 1000 is sufficient
+        eqx run -t saveforlater -C -f 100 cosmos 
+
+2. To run an instance of the Projector:
+
+        # (either add environment variables as per step 0 or use -s/-d/-c to specify them)
+
+        # `default` defines the Projector Group identity - each id has separated state in the aux container (aka LeaseId)
+        # `-m 1000` sets the max batch size to 1000
+        # cosmos specifies the source (if you have specified 3x EQUINOX_COSMOS_* environment vars, no arguments are needed)
+        dotnet run -- default -m 1000 cosmos
+
+        # NB (assuming you've scaled up enough to have >1 range, you can run a second instance in a second console with the same arguments)

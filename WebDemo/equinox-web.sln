@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29230.61
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web", "Web\Web.csproj", "{6C72C937-ECFC-4DD4-9BA0-7355B237F974}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{E87F1E85-B2CE-436D-9992-702C068DD338}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{518EE7E2-76AF-4DE9-A127-C2DFF709A468}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{B188B3E2-7DFD-400F-99E2-9DA110190393}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projection", "Projection", "{DBBF92B9-19DE-4334-B2BF-CE20C18CB96A}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Projector", "Projector\Projector.fsproj", "{C203E7D6-58ED-45E6-9914-84F1E0972187}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HybridProjector", "HybridProjector\HybridProjector.csproj", "{412F73B7-9241-410A-8D32-4954F766B070}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpProjector", "CSharpProjector\CSharpProjector.csproj", "{ADE52288-B66F-4626-85F5-4ACDB6313B4A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6C72C937-ECFC-4DD4-9BA0-7355B237F974}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C72C937-ECFC-4DD4-9BA0-7355B237F974}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C72C937-ECFC-4DD4-9BA0-7355B237F974}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C72C937-ECFC-4DD4-9BA0-7355B237F974}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E87F1E85-B2CE-436D-9992-702C068DD338}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E87F1E85-B2CE-436D-9992-702C068DD338}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E87F1E85-B2CE-436D-9992-702C068DD338}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E87F1E85-B2CE-436D-9992-702C068DD338}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C203E7D6-58ED-45E6-9914-84F1E0972187}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C203E7D6-58ED-45E6-9914-84F1E0972187}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C203E7D6-58ED-45E6-9914-84F1E0972187}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C203E7D6-58ED-45E6-9914-84F1E0972187}.Release|Any CPU.Build.0 = Release|Any CPU
+		{412F73B7-9241-410A-8D32-4954F766B070}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{412F73B7-9241-410A-8D32-4954F766B070}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{412F73B7-9241-410A-8D32-4954F766B070}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{412F73B7-9241-410A-8D32-4954F766B070}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADE52288-B66F-4626-85F5-4ACDB6313B4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADE52288-B66F-4626-85F5-4ACDB6313B4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADE52288-B66F-4626-85F5-4ACDB6313B4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADE52288-B66F-4626-85F5-4ACDB6313B4A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6C72C937-ECFC-4DD4-9BA0-7355B237F974} = {B188B3E2-7DFD-400F-99E2-9DA110190393}
+		{E87F1E85-B2CE-436D-9992-702C068DD338} = {B188B3E2-7DFD-400F-99E2-9DA110190393}
+		{C203E7D6-58ED-45E6-9914-84F1E0972187} = {DBBF92B9-19DE-4334-B2BF-CE20C18CB96A}
+		{412F73B7-9241-410A-8D32-4954F766B070} = {DBBF92B9-19DE-4334-B2BF-CE20C18CB96A}
+		{ADE52288-B66F-4626-85F5-4ACDB6313B4A} = {DBBF92B9-19DE-4334-B2BF-CE20C18CB96A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2232D6B6-0CA3-4E51-BFD4-DB0A42EF34BF}
+	EndGlobalSection
+EndGlobal
